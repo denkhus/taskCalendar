@@ -1,0 +1,12 @@
+
+.color-box {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.color-box.selected {
+  outline: 4px double rgba(28, 110, 164, 0.31);
+}

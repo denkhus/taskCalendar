@@ -1,0 +1,24 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1>📅 Ежедневник задач</h1>
+  </header>
+  <div class="actions">
+    <button (click)="onAdd()">Добавить</button>
+    <button [disabled]="!canEdit" (click)="onEdit()">Редактировать</button>
+    <button [disabled]="!canEdit" (click)="onView()">Просмотр</button>
+  </div>
+  @if(showForm) {
+    <app-task-create-form></app-task-create-form>
+  }
+  <main class="days-grid" cdkDropListGroup>
+    @for (day of days; track day.id) {
+      <app-day-column
+        [id]="day.id"
+        [title]="day.title"
+        [tasks]="day.tasks"
+        (completed)="onCompleted($event)"
+        (dropItem)="onDrop($event)">
+      </app-day-column>
+    }
+  </main>
+</div>

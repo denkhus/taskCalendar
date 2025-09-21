@@ -1,0 +1,20 @@
+<div class="day-column">
+  <div class="column-header">
+    <h3 class="column-title">{{ title() }}</h3>
+    <span class="task-count">{{ tasks().length }}</span>
+  </div>
+
+  <div class="tasks-list" cdkDropList
+       [cdkDropListData]="tasks()"
+       (cdkDropListDropped)="onDrop($event)"
+       [id]="id()">
+    @for (task of tasks(); track task.id) {
+      <app-task-item
+        cdkDrag
+        [task]="task"
+        [cdkDragData]="task"
+        (completed)="completed.emit($event)">
+      </app-task-item>
+    }
+  </div>
+</div>

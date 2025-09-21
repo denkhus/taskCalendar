@@ -1,0 +1,5 @@
+@for(color of colors; track color){
+  <div class="color-box" [style.backgroundColor]="color" [ngClass]="{selected: selectedColor === color}"
+       (click)="colorClicked(color)" >
+  </div>
+}

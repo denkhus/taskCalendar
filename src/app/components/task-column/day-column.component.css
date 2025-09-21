@@ -1,0 +1,50 @@
+.day-column {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 280px;
+  min-height: 400px;
+  border-top: 4px solid;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.column-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.task-count {
+  background: #e9ecef;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tasks-list {
+  min-height: 100px;
+  margin-bottom: 16px;
+}
+
+.add-task {
+  margin-top: auto;
+}
+
+.task-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 14px;
+}
+

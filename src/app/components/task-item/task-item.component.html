@@ -1,0 +1,19 @@
+<div class="task-item"
+     appScaleOnHover
+     appSelectTask
+     [clickColor]="'#fffacd'"
+     [taskId]="task().id"
+     [originalColor]="task().color">
+  <div class="task-content">
+    <div class="task-title">{{ task().title }}</div>
+    <div>Приоритет: {{ task().priority | priority}}</div>
+    <div>
+      <input
+        [disabled]="!canComplete"
+        type="checkbox"
+        [checked]="task().completed"
+        (change)="onToggleComplete(task().id)"
+        class="task-checkbox">
+    </div>
+  </div>
+</div>
