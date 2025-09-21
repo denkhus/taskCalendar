@@ -10,6 +10,8 @@ export interface Task {
 
 export type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 
+export type ActionMode = 'add' | 'edit' | 'view' | null;
+
 export enum Priority {
   low = 0,
   medium = 1,
@@ -26,7 +28,7 @@ export interface DayColumn {
 export interface TaskState {
   tasks: Task[];
   selectedTask: Task | null;
-  action: 'add' | 'edit' | 'view' | null;
+  action: ActionMode | null;
 }
 
 export interface MoveTaskData {

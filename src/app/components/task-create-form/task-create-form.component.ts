@@ -1,8 +1,9 @@
 import {ChangeDetectionStrategy, Component, effect, inject} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {DayColumn, DayOfWeek, Priority, Task} from '../../models/task';
+import {ActionMode, DayColumn, DayOfWeek, Priority, Task} from '../../models/task';
 import {TaskStore} from '../../store/task.store';
 import {ColorPickerComponent} from '../../shared/color-picker/color-picker.component';
+import {TitlePipe} from '../../pipes/title-pipe';
 
 export interface TaskCreateForm {
   id: FormControl<string | null>;
@@ -17,7 +18,7 @@ export interface TaskCreateForm {
   templateUrl: './task-create-form.component.html',
   styleUrls: ['./task-create-form.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, FormsModule, ColorPickerComponent],
+  imports: [ReactiveFormsModule, FormsModule, ColorPickerComponent, TitlePipe],
 })
 export class TaskCreateFormComponent {
   public form: FormGroup | undefined;
@@ -30,13 +31,8 @@ export class TaskCreateFormComponent {
     return this.taskStore.days();
   }
 
-  public get title(): string {
-    switch (this.taskStore.action()){
-      case 'add': return  'Создание задачи';
-      case 'edit': return  'Редактирование задачи';
-      case 'view': return  'Просмотр';
-      default: return  '';
-    }
+  public get action(): ActionMode | null {
+    return this.taskStore.action();
   }
 
   public get canSave(): boolean | undefined {
