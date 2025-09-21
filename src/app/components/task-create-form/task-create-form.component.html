@@ -1,35 +1,36 @@
 @if(form) {
   <div class="form" [formGroup]="form">
     <h4>{{action | title}}</h4>
-    <div class="row">
-      <span>Заголовок:</span>
-      <input type="text" formControlName="title">
-    </div>
-    <div>
-      <span>День недели:</span>
-      <select formControlName="dayOfWeek">
-        @for (item of days; track item.id) {
-          <option [value]="item.id">
-            {{item.title}}
-          </option>
-        }
-      </select>
-    </div>
-    <div>
-      <span>Приоритет:</span>
-      <select formControlName="priority">
-        @for (item of priorities; track item.id) {
-          <option [value]="item.id">
-            {{item.value}}
-          </option>
-        }
-      </select>
-    </div>
-    <div>
-      <span>Цвет:</span>
-      <app-color-picker formControlName="color"></app-color-picker>
+    <div class="container">
+      <div class="row">
+        <span>Заголовок:</span>
+        <input type="text" formControlName="title">
+      </div>
+      <div class="row">
+        <span>День недели:</span>
+        <select formControlName="dayOfWeek">
+          @for (item of days; track item.id) {
+            <option [value]="item.id">
+              {{item.title}}
+            </option>
+          }
+        </select>
+      </div>
+      <div class="row">
+        <span>Приоритет:</span>
+        <select formControlName="priority">
+          @for (item of priorities; track item.id) {
+            <option [value]="item.id">
+              {{item.value}}
+            </option>
+          }
+        </select>
+      </div>
+      <div class="row">
+        <span>Цвет:</span>
+        <app-color-picker formControlName="color"></app-color-picker>
+      </div>
     </div>
     <button [disabled]="!canSave" (click)="onSave()">Сохранить</button>
   </div>
-
 }

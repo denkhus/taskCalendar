@@ -2,6 +2,7 @@ import {Component, input, ChangeDetectionStrategy, output} from '@angular/core';
 import {Task} from '../../models/task';
 import {PriorityPipe} from '../../pipes/priority.pipe';
 import {SelectDirective} from '../../directives/select-directive';
+import {ScaleOnHoverDirective} from '../../directives/scale-on-hover.directive';
 
 @Component({
   selector: 'app-task-item',
@@ -11,6 +12,7 @@ import {SelectDirective} from '../../directives/select-directive';
   imports: [
     PriorityPipe,
     SelectDirective,
+    ScaleOnHoverDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

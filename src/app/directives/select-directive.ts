@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostBinding, HostListener, inject, input, Renderer2} from '@angular/core';
+import {Directive, HostBinding, HostListener, inject, input} from '@angular/core';
 import {TaskStore} from '../store/task.store';
 
 @Directive({
@@ -9,8 +9,6 @@ export class SelectDirective {
   public originalColor = input('transparent');
   public taskId = input.required<string>();
   private store = inject(TaskStore);
-  private el = inject(ElementRef);
-  private renderer = inject(Renderer2);
 
   @HostBinding("style.background-color")
   public get selectedColor(): string {
@@ -22,7 +20,6 @@ export class SelectDirective {
   }
 
   constructor() {
-    this.renderer.setStyle(this.el.nativeElement, 'transition', 'all 0.3s ease');
   }
 
   @HostListener('click') onMouseEnter(): void {
